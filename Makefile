@@ -1,9 +1,17 @@
 build:
 	docker compose -f local.yml up --build -d --remove-orphans
 
-up-base:
+up-base: up-services up-workers
+
+up-services:
 	docker compose -f local.yml up postgres -d
 	docker compose -f local.yml up mailhog -d
+	docker compose -f local.yml up redis -d
+	docker compose -f local.yml up nginx -d
+
+up-workers:
+	docker compose -f local.yml up celery_worker -d
+	docker compose -f local.yml up flower -d
 
 up-api:
 	docker compose -f local.yml up api

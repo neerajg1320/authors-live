@@ -31,7 +31,7 @@ THIRD_PARTY_APPS = [
     "phonenumber_field",
     "drf_yasg",
     "corsheaders",
-    # "djcelery_email",
+    "djcelery_email",
     # "rest_framework.authtoken",
     # "allauth",
     # "allauth.account",
@@ -163,16 +163,16 @@ CORS_URLS_REGEX = r"^api/.*$"
 
 AUTH_USER_MODEL = "users.User"
 
-# CELERY_BROKER_URL = env("CELERY_BROKER")
-# CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-# CELERY_ACCEPT_CONTENT = ["json"]
-# CELERY_TASK_SERIALIZER = "json"
-# CELERY_RESULT_SERIALIZER = "json"
-# CELERY_RESULT_BACKEND_MAX_RETRIES = 10
-# CELERY_TASK_SEND_SENT_EVENT = True
+CELERY_BROKER_URL = env("CELERY_BROKER")
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_RESULT_BACKEND_MAX_RETRIES = 10
+CELERY_TASK_SEND_SENT_EVENT = True
 
-# if USE_TZ:
-#     CELERY_TIMEZONE = TIME_ZONE
+if USE_TZ:
+    CELERY_TIMEZONE = TIME_ZONE
 
 # REST_FRAMEWORK = {
 #     "DEFAULT_AUTHENTICATION_CLASSES": [
