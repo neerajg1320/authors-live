@@ -101,8 +101,8 @@ services:
 
     nginx:
         restart: always
-        depends_on:
-            - api
+        # depends_on:
+        #     - api
         volumes:
             - static_volume:/app/staticfiles
             - media_volume:/app/mediafiles
