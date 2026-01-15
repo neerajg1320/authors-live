@@ -1,6 +1,13 @@
 build:
 	docker compose -f local.yml up --build -d --remove-orphans
 
+up-base:
+	docker compose -f local.yml up postgres -d
+	docker compose -f local.yml up mailhog -d
+
+up-api:
+	docker compose -f local.yml up api
+
 up:
 	docker compose -f local.yml up -d
 
